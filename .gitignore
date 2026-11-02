@@ -1,0 +1,25 @@
+# Local Studio places and backups (the scene is maintained in Studio)
+*.rbxl
+*.rbxlx
+*.rbxl.lock
+*.rbxlx.lock
+*.rbxl.autosave
+*.rbxlx.autosave
+*.bak
+/backups/
+
+# Generated validation output and Rojo sourcemaps
+/build/
+/sourcemap.json
+
+# Local logs, secrets, and OS/editor temporary files
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*~
