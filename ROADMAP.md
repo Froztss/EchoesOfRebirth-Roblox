@@ -1,116 +1,149 @@
 # Echoes of Rebirth — Roblox Development Roadmap
 
-This 11-stage plan adapts the browser roadmap to Roblox. Browser completion does not mean a Roblox feature is complete. Multiplayer compatibility and server authority apply from the foundation; Stage 10 expands and validates the co-op experience.
+**Platform:** Roblox Studio + Luau + Rojo. **Genre:** third-person, persistent shared-world Murim/xianxia cultivation MMORPG. **Design authority:** approved choices in the 2026-11-06 baseline and 2026-11-08 update below; later explicit user decisions supersede earlier proposals.
 
-**Task 001 — Project Foundation: complete.** Source, configuration, documentation, and local checks are complete. User manual verification passed for synchronization, scene/camera preservation, correct mappings, single-player startup, and two-client startup without game-script errors. Task 002 has not started. Implement only the explicitly authorized task.
+> **Implementation status (2026-11-08):** **Task 001 foundation verified complete.** **Task 002 has reported work-in-progress/checkpoint material, but its current branch, commit, and Studio acceptance have not been verified here.** No later gameplay stage is claimed complete. Unchecked tasks are design/implementation backlog, not evidence of working code. Do not infer task completion from design approval.
 
-## Stage 1 — Project foundation
+> **Before any Codex edits:** User opens Codespace in VS Code and **git pulls first**; inspect `git status`, current branch, latest commits, Task 002 checkpoint, Rojo mapping, and existing controller modules. Preserve WIP, avoid destructive overwrites, and ask for explicit task authorization. Maintain incremental checkpoints/commits and test in Roblox Studio where needed.
 
-- [x] Implement Task 001 files: Rojo service mappings, strict client/server startup, shared configuration, documentation, and Git exclusions.
-- [x] Pass Rojo validation and available static checks (standalone Luau analysis unavailable; Studio Script Analysis remains manual).
-- [x] Confirm live synchronization, server/client startup messages, two-client startup, and preservation of Baseplate and Camera in Studio (user verified).
+## Development stages — authoritative implementation order
 
-**Complete:** the existing place runs the minimal foundation without game-script startup errors or scene changes. The non-blocking Studio asset-type warning for asset ID `203785492` is documented in the [README](./README.md#known-studio-warning). No gameplay is required at this stage.
+Stages represent **dependency order**, not a claim that all listed work fits into a single task or release. Build small vertical slices and verify server authority, persistence, mobile/gamepad controls, and multi-client behavior continuously. Alpha 0.1 is a compact playable slice across relevant early stages; advanced features may remain post-Alpha.
 
-## Stage 2 — Exploration and interaction
+### Stage 1 — Project foundation [VERIFIED COMPLETE]
 
-- [ ] Establish first-person camera, movement, sprint, jumping, and collision using Roblox character systems.
-- [ ] Build a compact Starting Village, Whispering Forest, and Ancient Ruins with clear routes and region labels.
-- [ ] Add signposts and interaction prompts with server checks for consequential actions.
-- [ ] Add baseline HUD, settings, and menus that leave the shared world running.
+- [x] Rojo service mappings, strict client/server bootstrap, shared configuration, documentation, and Git exclusions (Task 001).
+- [x] Rojo build/sourcemap and available checks; preserve Baseplate/Camera and unmanaged Studio scene.
+- [x] User-verified Studio sync, single-player and two-client startup without game-script startup errors.
 
-**Done when:** two clients can explore and interact independently without one player's UI interrupting the other.
+**Acceptance:** Task 001 verification record below remains authoritative. No new gameplay is implied.
 
-## Stage 3 — Magic combat
+### Stage 2 — Character controller, camera, and input
 
-- [ ] Add authoritative health, mana, regeneration, damage, and cooldowns.
-- [ ] Implement Fireball and Frost Bolt, validated cast requests, and server hit resolution.
-- [ ] Add bounded client effects, skill selection, HUD feedback, and test targets.
-- [ ] Test duplicate, malformed, out-of-range, and excessive requests.
+- [ ] **Inspect and reconcile Task 002 WIP first**; do not replace `PlayerController`, `CharacterSetup`, lifecycle modules, or checkpoints without review.
+- [ ] Third-person R15 movement, camera orbit/lock-on foundation, collision, sprint/jump, input abstraction, and character respawn lifecycle.
+- [ ] Establish client responsiveness and server validation for consequential movement/actions; support desktop, mobile, and controller.
+- [ ] Basic region transitions, interaction prompts, HUD, and two-client isolation.
 
-**Done when:** clients can cast and defeat test targets while the server enforces eligibility and damage.
+**Acceptance:** Player controls, camera, lifecycle, and interactions work in Studio with two clients and no obsolete first-person assumptions. Preserve Task 002 changes.
 
-## Stage 4 — Horde survival
+### Stage 3 — Character identity, onboarding, and durable profile foundation
 
-- [ ] Add server-controlled Mossbound Marauder pursuit, navigation, melee, and defeat.
-- [ ] Add capped waves, safe spawn selection, and a repeatable rift sealing objective.
-- [ ] Replicate encounter state and profile AI, physics, and effects under load.
+- [ ] One character per Roblox UserId; versioned server-owned profile, session locking/fencing, migrations, safe retries, and crash/disconnect tests.
+- [ ] Roblox-avatar-based appearance customization, filtered in-world name, cosmetic/stat separation, and Soul Record.
+- [ ] Reincarnation prologue, Latent Rebirth Resonance introduction, First Haven onboarding, Sword/Body/Arcane trial previews, and **explicit confirmed permanent path choice**.
+- [ ] Persist path, appearance, identity, account/character boundaries, and initial discovery/quest state; no self-service character reset in Alpha.
 
-**Done when:** multiple players observe the same repeatable encounter and completion state within measured budgets.
+**Acceptance:** Rejoin preserves a single valid character and irreversible path choice; failed/duplicate requests cannot create extra slots or double-grant rewards.
 
-## Stage 5 — First living companion
+### Stage 4 — Core martial combat, resources, and death/revival
 
-- [ ] Introduce Seraphine with stable identity and explicit player/party ownership rules.
-- [ ] Implement recruitment, follow, fight, protect, and retreat behavior on the server.
-- [ ] Implement health, downed state, timed revival, and current-session death.
-- [ ] Add dialogue UI, server-validated choices, and relationship state.
+- [ ] HP, stamina, Qi, damage/hitboxes, attack state machine, light/heavy combos, guard/perfect parry, dodge, stance break, and basic lock-on.
+- [ ] Basic Qinggong dash/enhanced leap and one starter technique per path; latency-aware server validation and responsive client presentation.
+- [ ] Alive/downed/revive/respawn lifecycle, universal basic revival, Sanctuary Points, Temporary Qi Disruption, and safe meditation recovery.
+- [ ] Combat input buffering/cancel priorities, readable telegraphs, mobile/gamepad parity, and abuse/latency tests.
 
-**Done when:** two clients see consistent companion state; concurrent recruitment, revival, and dialogue cannot duplicate outcomes. Persistence follows in Stage 7.
+**Acceptance:** All three paths can defeat test targets and survive basic combat solo; two clients cannot forge damage, invulnerability, revival, or resources. Numerical values remain playtest targets.
 
-## Stage 6 — Quest and progression systems
+### Stage 5 — Cultivation progression, techniques, and inventory
 
-- [ ] Add a main objective tracker, one side quest, and branching decisions.
-- [ ] Add server-owned experience, skill unlocks, inventory, and rewards.
-- [ ] Connect quest events to combat and companion outcomes with explicit personal/party ownership.
+- [ ] Hybrid character level + cultivation, attributes, Qi circulation/reinforcement, Insight, breakthrough trials, and persistent realm stages.
+- [ ] Sword/Body/Arcane technique branches, Discovered → Learned → Unlocked → Equipped lifecycle, four active slots, limited refundable points, trainer respec within permanent path.
+- [ ] Basic inventory, unique item instances, path-incompatible ownership, equipment, Spirit Coins, and server-owned rewards.
+- [ ] Introductory crafting/refinement and manuals only after inventory/reward correctness is verified.
 
-**Done when:** a player completes an objective and receives a reward once; progress is ready for Stage 7 persistence.
+**Acceptance:** Progression, respec, inventory, and equipment persist without duplicate grants or unauthorized path switching.
 
-## Stage 7 — Saving and world persistence
+### Stage 6 — Adaptive martial AI and core encounters
 
-- [ ] Design versioned server-side DataStore schemas and migration/default handling.
-- [ ] Persist progression, appropriate player state, and consequential companion outcomes.
-- [ ] Define personal versus party/world save ownership, concurrent-session protection, retries, and shutdown behavior.
-- [ ] Test missing/corrupt data, failures, reconnects, and dead-companion persistence in a separate test environment.
+- [ ] Reusable NPC behavior states, utility-based action selection, short-term combat memory, threat targeting, and enemy archetypes.
+- [ ] Training dummy, forest bandit, spirit beast, elite martial disciple; telegraphed attacks, fair counterplay, leash/reset rules.
+- [ ] Regional baseline difficulty and controlled multiplayer participation; server-controlled spawns, bounded AI/physics/effects budgets.
+- [ ] Instrument and test enemy decisions, reaction delays, adaptation decay, latency, and anti-stunlock behavior.
 
-**Done when:** rejoining preserves consequential decisions and failed writes cannot silently overwrite good data.
+**Acceptance:** Solo and two-client encounters are readable, performant, and server-authoritative; AI cannot perfectly read player inputs.
 
-## Stage 8 — Playable vertical slice
+### Stage 7 — First Haven, NPCs, quests, and personal story
 
-- [ ] Polish one region, one story mission, one side quest, one companion, and one meaningful decision.
-- [ ] Integrate the rift encounter, rewards, tutorial, feedback, and persistence.
-- [ ] Playtest a coherent 15–30 minute sample as a target, with solo and multiplayer sessions.
+- [ ] First Haven and Whispering Forest starter routes, landmarks, Sanctuary Points, interactable NPCs, and accessible services.
+- [ ] Main/regional/character/cultivation quest foundations, journal, NPC Trust/Respect/Faction Reputation, and one meaningful personal branch.
+- [ ] Shared-world events with personal progression/rewards and no forced shared narrative decisions.
+- [ ] Adventurer Pact and Master–Disciple design hooks only where needed; do not add compulsory squads or obsolete Seraphine companion mechanics.
 
-**Done when:** new players can complete the slice without blocking defects.
+**Acceptance:** A player can complete onboarding and a coherent quest branch; two players see compatible shared world state while keeping distinct choices.
 
-## Stage 9 — Large-scale world expansion
+### Stage 8 — Qinggong exploration, discovery, and puzzle foundations
 
-- [ ] Expand connected biomes, settlements, terrain routes, and at least one dungeon.
-- [ ] Design StreamingEnabled behavior, travel boundaries, and client handling of streamed instances.
-- [ ] Verify encounters and saved state across regions; profile memory, replication, and active simulation.
+- [ ] Interconnected world with soft gates, hazard signposting, region labels, and discoverable realm entrances.
+- [ ] Discovery Journal (Unknown → Rumored → Discovered), resonance traces/memory clues, and server-verified one-time discoveries.
+- [ ] Basic Qi formation puzzle, optional hidden chamber, Qinggong traversal section, telegraphed hazard, and Sanctuary Anchor.
+- [ ] Solo-accessible puzzle alternatives, mobile/gamepad accessibility, and checkpoint/discovery persistence boundaries.
 
-**Done when:** travel and state remain reliable across expanded areas within measured device budgets.
+**Acceptance:** Players can find and solve one secret without external guides or another player; no duplicate first-discovery claims or Qi-disruption softlocks.
 
-## Stage 10 — Online co-op campaign
+### Stage 9 — World bosses, instanced guardians, and first secret realm
 
-- [ ] Expand the continuously multiplayer-compatible game toward 2–4 player parties.
-- [ ] Finalize shared story choices, companion control, reward attribution, and party/session progression.
-- [ ] Test late joins, disconnects, rejoining, latency, simultaneous interactions, and exploit attempts.
+- [ ] One shared regional mini-boss: spawn/discovery cues, encounter boundaries, contribution eligibility, anti-griefing, and personal loot.
+- [ ] One private guardian expedition: solo/voluntary group entry, participant-based scaling, reconnect/teleport failure recovery, wipe reset, and first-clear journal.
+- [ ] **Forgotten Meridian Sanctuary** prototype: entrance, Outer Hall, Four Meridian Seals, optional archive, Qi Conduit hazard/traversal, Sanctuary Anchor, Fallen Meridian Guardian, Legacy Chamber.
+- [ ] Idempotent item/currency/first-clear grants, participation fairness, and multi-client failure testing.
 
-**Done when:** remote players can complete a shared encounter and retain the intended progression through reconnects.
+**Acceptance:** Solo and cooperating players can complete the realm; loot is individually earned, claimed once where applicable, and remains correct after retry/disconnect.
 
-## Stage 11 — Art, audio, optimization, and release
+### Stage 10 — Economy, social systems, and world expansion
 
-- [ ] Replace approved placeholders with original or appropriately licensed Roblox-compatible assets.
-- [ ] Add animation, spell audio, ambience, accessibility, and graphics options.
-- [ ] Profile supported devices, complete regression testing, and resolve release-blocking defects.
-- [ ] Prepare Roblox publishing settings, release notes, and an approved release process.
+- [ ] Expand crafting/refinement/enchantment, Rare→Transcendental hidden armaments, and always-tradeable equipment including awakened/path-incompatible items.
+- [ ] Secure direct trades first; public Grand Exchange later with durable escrow/journaling, idempotency, reconciliation, free-market Spirit Coin prices, and anti-duplication testing.
+- [ ] Voluntary Adventurer Pacts, Master–Disciple mentorship, player-founded Sects, consensual nonlethal duels, and later Sovereign's Clash.
+- [ ] Expand regions, dynamic events, secret realms, quests, and scalable shared-world operations only after foundation is measured.
 
-**Done when:** the tested experience is ready for an explicitly authorized release.
+**Acceptance:** Trades cannot duplicate assets across disconnects or concurrent purchases; social play is optional; regional expansion stays within performance budgets.
+
+### Stage 11 — Integration, optimization, accessibility, and release
+
+- [ ] Integrate the Alpha 0.1 20–30-minute onboarding/early-world slice before wider content expansion; separate post-Alpha work from release blockers.
+- [ ] Original/licensed Roblox-compatible assets, martial animations, audio, effects, UI, graphics settings, and accessibility.
+- [ ] Profile low-end mobile, PC, and controller experience; stress-test AI, bosses, DataStore failures, teleports, multiplayer, and exploit attempts.
+- [ ] Document acceptance results, regressions, publishing configuration, and explicit release authorization.
+
+**Acceptance:** Release only after an explicitly authorized, measured and tested build passes its defined scope.
+
+## Cross-stage engineering requirements
+
+- **Server authority:** All consequential combat, movement eligibility, quests, cultivation, items, trades, puzzle states, participation, and rewards are validated server-side.
+- **Persistence:** Versioned data, session ownership, retries, idempotent claims/transactions, and failure recovery are built incrementally, not postponed until late development.
+- **Compatibility:** Desktop, mobile, and gamepad controls; solo viability for standard story/realms; two-client tests at every relevant stage.
+- **Performance:** Profile AI scheduling, physics, effects, streaming, replication, and memory before expanding scope.
+- **Security:** Never assume Roblox DataStores offer atomic cross-player transactions; design explicit journals, escrow, and reconciliation.
+- **Scope control:** One approved Codex task at a time. Preserve source history, document manual Studio checks, and never mark unchecked design items implemented.
+
+## Alpha 0.1 milestone gates (proposed)
+
+1. **Foundation gate:** Task 001 verified; Task 002 reviewed/reconciled before further controller edits.
+2. **Character gate:** one character, onboarding, path choice, identity/resonance, persistent save.
+3. **Combat gate:** basic Sword/Body/Arcane, parry/dodge/stance, Qinggong, downed/revive/Qi Disruption.
+4. **World gate:** First Haven and forest outskirts, starter NPCs/quests, one personal choice, discovery journal.
+5. **Encounter gate:** basic adaptive enemies, one shared mini-boss, one compact hidden realm/guardian, personal loot.
+6. **Quality gate:** repeatable solo and multiplayer Studio acceptance, device accessibility, exploit and persistence failure tests.
+
+**Alpha is a target scope, not a commitment to ship every Stage 10 economy/social feature.** Large realms, Grand Exchange, Sect governance, high-tier weapons, and large world events are later expansion unless separately prioritized.
+
+---
 
 ## Task 001 verification record
 
-Automated results and user manual acceptance are recorded separately below. Stage 1 is complete; later stages remain unstarted.
+Automated results and user manual acceptance are recorded separately below. Stage 1 is complete; later-stage completion must be verified against the current branch and Studio. Task 002 has reported work-in-progress, not a verified completion.
 
 2026-11-02 — Automated verification: applied the code-only mapping after the user confirmed Studio's Rojo plugin was disconnected. Rojo 7.7.1 build and sourcemap generation passed. The generated hierarchy contains the expected Script, LocalScript, and ModuleScript with source matching disk, and no Workspace, Baseplate, Camera, Lighting, or SoundService instances. Editor diagnostics, documentation links, 11-stage count, strict directives, and whitespace checks passed. No Studio scene objects were edited. Standalone Luau analysis is unavailable; no separate Studio Script Analysis result has been reported.
 
-2026-11-02 — User manual acceptance and Task 001 completion: Rojo synchronization, Baseplate and Camera preservation, Client/Server/Shared Config mappings, single-player startup, and two-client multiplayer startup passed. The server and both clients displayed their startup messages. No errors originating from game scripts were reported. Studio's asset-type warning for asset ID `203785492` is non-blocking and documented; its requesting component remains unidentified. The user authorized the private repository setup, foundation commit, and push to `main`. Task 002 remains unstarted.
+2026-11-02 — User manual acceptance and Task 001 completion: Rojo synchronization, Baseplate and Camera preservation, Client/Server/Shared Config mappings, single-player startup, and two-client multiplayer startup passed. The server and both clients displayed their startup messages. No errors originating from game scripts were reported. Studio's asset-type warning for asset ID `203785492` is non-blocking and documented; its requesting component remains unidentified. The user authorized the private repository setup, foundation commit, and push to `main`. Task 002 status requires branch/worktree verification; do not assume it is unstarted or complete.
 
 
 ---
 
 ## Current game design direction — 2026-11-06 (planning baseline; not implemented)
 
-> **IMPORTANT FOR CODEX AND CONTRIBUTORS:** This section supersedes conflicting *design assumptions* in Stages 2–11 above. Those stages are historical migration planning, not authorization to implement obsolete FPS features. Task 001 remains verified complete. Task 002 has work-in-progress on a separate branch and must be inspected before editing or replacing any controller files. Do not mark features below complete without implementation and testing. Revise the stage-by-stage roadmap in a separate, explicitly authorized planning task before starting the next gameplay task.
+> **HISTORICAL DESIGN BASELINE (2026-11-06):** This section preserves earlier approved choices and provisional proposals. The newer 2026-11-08 design update below overrides conflicting statements here. The authoritative implementation order is Stages 1–11 at the top of this file. Task 001 is complete; Task 002 is unverified WIP and must be inspected before editing controller files. Unchecked items are not implemented.
 
 ### Product vision and player experience
 
@@ -169,7 +202,7 @@ Automated results and user manual acceptance are recorded separately below. Stag
 - [ ] **Confirmed narrative structure:** a **shared persistent world with meaningful personal choices**. Player decisions affect personal dialogue, NPC relationships, faction standing, quest outcomes, and opportunities without permanently contradicting other players' shared world.
 - [ ] Main narrative explores reincarnation and the nature of Qi/cultivation, but remains open-ended and compatible with independent exploration, commerce, and Sects.
 - [ ] **Proposed, not yet confirmed canon:** the ancient **Fracturing** catastrophe, mysterious Rebirth of souls, and five expandable chapters: *The First Awakening*, *Whispers of the Forgotten*, *The Kingdom of Divided Oaths*, *The Broken Meridian*, *Echoes Beyond Rebirth*. Do not treat these names or plot details as final without approval.
-- [ ] **Opening sequence is not decided yet:** mysterious awakening in First Haven, cinematic reincarnation prologue, and player-defined past are options for the next design discussion.
+- [ ] **SUPERSEDED:** The opening direction was subsequently chosen: reincarnation prologue, Roblox-avatar-based customization, First Haven onboarding, three cultivation-path trials, and confirmed permanent player choice. See the 2026-11-08 update; cinematic details remain provisional.
 - [ ] NPC relationships track **Trust**, **Respect**, and **Faction Reputation** separately. NPC factions are distinct from player-founded Sects. Consequences persist per player; avoid locking core gameplay behind accidental dialogue choices.
 - [ ] Quest categories: **main story, regional, character, cultivation, exploration, and dynamic events**; later Sect missions, Master–Disciple training, and crafting commissions. Persist quest journals, choices, and reward claims.
 - [ ] NPCs use lightweight schedules and behavior, with more detailed routines for important characters. Essential services remain available.
@@ -191,16 +224,16 @@ Automated results and user manual acceptance are recorded separately below. Stag
 ### Planning and implementation guardrails
 
 1. **Do not treat this design backlog as completed code.** All unchecked items require explicit task authorization and validation.
-2. **Revise Stages 2–11 and the Task 002 checkpoint before resuming implementation**, replacing obsolete FPS/companion assumptions with third-person Murim MMORPG milestones. Preserve Task 001 history and any existing WIP.
+2. **Stages 2–11 have been revised** to third-person Murim MMORPG milestones at the top of this file. Before implementation, inspect the current Task 002 branch/checkpoint, preserve WIP, and reconcile existing files with the new staged plan.
 3. Numerical values (XP curves, Qi formulas, damage multipliers, prices, taxes, point budgets, thresholds, and level bands) are **initial balance proposals**, not playtested guarantees.
-4. Design discussions still pending include the exact reincarnation opening, full narrative canon, death penalties, detailed technique balancing, party loot allocation, and final cross-server economy architecture.
+4. **Updated 2026-11-08:** Reincarnation opening direction, Temporary Qi Disruption, personal boss loot, hybrid combat, adaptive AI, hybrid bosses, and exploration-driven realms are now selected. Still pending: exact narrative canon, numerical combat tuning, exploration clue/hint presentation, and final cross-server economy architecture.
 
 
 ---
 
 ## Design progress update — 2026-11-08 (confirmed decisions and implementation backlog)
 
-> **STATUS:** Design/planning only. Nothing in this section is implemented or tested merely because it is documented. This section supersedes conflicting or undecided statements in the 2026-11-06 design baseline above (especially the opening, death penalty, camera/combat, enemy AI, and boss/dungeon choices). Historical Stages 2–11 are still obsolete FPS migration assumptions. Do not overwrite Task 002 WIP without inspecting branch/status; user intends to git pull first when reopening Codespace.
+> **STATUS:** Design/planning only. Nothing in this section is implemented or tested merely because it is documented. This section supersedes conflicting or undecided statements in the 2026-11-06 design baseline above (especially the opening, death penalty, camera/combat, enemy AI, and boss/dungeon choices). Stages 2–11 above have now been rewritten for the Roblox Murim MMORPG. Do not overwrite Task 002 WIP without inspecting branch/status; user intends to git pull first when reopening Codespace.
 
 ### Confirmed: reincarnation, avatar creation, and single-character account
 
@@ -284,6 +317,6 @@ Automated results and user manual acceptance are recorded separately below. Stag
 ### Next planning work and guardrails
 
 1. Confirm exploration clue/hint presentation, then design map and Discovery Journal UX.
-2. Rewrite obsolete historical Stages 2–11 into a new third-person Murim implementation sequence in a separately authorized planning pass, after inspecting Task 002 branch/WIP. Do not erase Task 001 verification history.
+2. **Completed planning correction:** Stages 2–11 now specify the Roblox Murim implementation sequence. Next inspect Task 002 branch/WIP and split the next authorized stage into small tasks; Task 001 verification history remains preserved.
 3. Treat all numerical timing, damage, stamina, Qi, spawn, loot, and HP scaling values as **unplaytested prototypes**.
 4. Preserve confirmed constraints: one character/account; permanent chosen path; no character-reset feature in Alpha; no cross-character transfers; no forced parties; soloable standard story/realms; no permanent death loss; personal loot; always-tradeable hidden weapons; shared world with personal story choices.
