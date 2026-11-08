@@ -302,7 +302,9 @@ Automated results and user manual acceptance are recorded separately below. Stag
 - [ ] Sanctuary Anchors preserve active-expedition checkpoints; instance-local puzzle state may reset on exit, while permanent discovery journal, Soul Record, first-clear flags, and rewards remain saved.
 - [ ] Reward exploration, puzzles, martial mastery, guardians, and discovery with XP, Cultivation Insight, manuals, crafting/refinement materials, personal lore, and hidden armaments. Major narrative first-clear rewards should be guaranteed; repeatables may be randomized.
 - [ ] Proposed first realm: **Forgotten Meridian Sanctuary** in Whispering Forest (suggested level 12–20): hidden entrance → Outer Hall → Four Meridian Seals puzzle and optional Forgotten Archive → Qi Conduit traversal/hazard → Sanctuary Anchor → Fallen Meridian Guardian → Legacy Chamber. First-time solo target 25–40 minutes; provisional.
-- [ ] **Exploration guidance style is NOT YET SELECTED**: clue-driven, minimal guidance, or progressive Discovery Journal hints remain options. Do not label one confirmed without user selection.
+- [ ] **CONFIRMED exploration guidance — Option A + C:** clue-driven exploration is the default, with **optional progressive Discovery Journal hints** when players get stuck. NPC rumors, ancient maps, environmental storytelling, world landmarks, and Latent Rebirth Resonance Echo Traces offer contextual leads, not exact automatic waypoints or puzzle solutions.
+- [ ] **Progressive hint UX (design details pending):** the journal starts with vague recorded leads, adds clearer contextual hints after exploration/discovery or explicit player request, and may eventually indicate an approximate region without pinpointing secret entrances. Hints must remain optional and never erase the value of independent discovery.
+- [ ] **Accessibility and fairness:** important secrets have multiple discoverable clue channels; journal clues remain readable on PC/mobile/gamepad; no mandatory external guides, no path-locked solutions, and no automatic puzzle completion. Final map markers, hint timing, unlock rules, and spoiler controls require separate approval.
 
 ### Updated Alpha 0.1 vertical slice — proposal, not implemented
 
@@ -316,7 +318,7 @@ Automated results and user manual acceptance are recorded separately below. Stag
 
 ### Next planning work and guardrails
 
-1. Confirm exploration clue/hint presentation, then design map and Discovery Journal UX.
+1. **Exploration guidance A + C approved:** next design the world map, Discovery Journal, clue progression, hint triggers, and spoiler-safe presentation; do not treat unapproved UX specifics as final.
 2. **Completed planning correction:** Stages 2–11 now specify the Roblox Murim implementation sequence. Next inspect Task 002 branch/WIP and split the next authorized stage into small tasks; Task 001 verification history remains preserved.
 3. Treat all numerical timing, damage, stamina, Qi, spawn, loot, and HP scaling values as **unplaytested prototypes**.
 4. Preserve confirmed constraints: one character/account; permanent chosen path; no character-reset feature in Alpha; no cross-character transfers; no forced parties; soloable standard story/realms; no permanent death loss; personal loot; always-tradeable hidden weapons; shared world with personal story choices.
