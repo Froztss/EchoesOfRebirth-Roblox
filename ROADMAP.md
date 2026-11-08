@@ -4,7 +4,7 @@
 
 > **Implementation status (2026-11-08):** **Task 001 foundation verified complete.** **Task 002 has reported work-in-progress/checkpoint material, but its current branch, commit, and Studio acceptance have not been verified here.** No later gameplay stage is claimed complete. Unchecked tasks are design/implementation backlog, not evidence of working code. Do not infer task completion from design approval.
 
-> **Before any Codex edits:** User opens Codespace in VS Code and **git pulls first**; inspect `git status`, current branch, latest commits, Task 002 checkpoint, Rojo mapping, and existing controller modules. Preserve WIP, avoid destructive overwrites, and ask for explicit task authorization. Maintain incremental checkpoints/commits and test in Roblox Studio where needed.
+> **Before any AI-agent or manual code edits:** Open the project workspace (including Codespace in VS Code when used) and **git pull first**; inspect `git status`, current branch, latest commits, Task 002 checkpoint, Rojo mapping, and existing controller modules. Preserve WIP, avoid destructive overwrites, and obtain explicit task authorization. Coordinate agents through clear task ownership and handoffs; maintain incremental checkpoints/commits and test in Roblox Studio where needed. The workflow is tool-agnostic: Codex and other coding, testing, documentation, design, or asset agents may contribute under the same safeguards.
 
 ## Development stages — authoritative implementation order
 
@@ -115,7 +115,7 @@ Stages represent **dependency order**, not a claim that all listed work fits int
 - **Compatibility:** Desktop, mobile, and gamepad controls; solo viability for standard story/realms; two-client tests at every relevant stage.
 - **Performance:** Profile AI scheduling, physics, effects, streaming, replication, and memory before expanding scope.
 - **Security:** Never assume Roblox DataStores offer atomic cross-player transactions; design explicit journals, escrow, and reconciliation.
-- **Scope control:** One approved Codex task at a time. Preserve source history, document manual Studio checks, and never mark unchecked design items implemented.
+- **Scope control:** One explicitly approved implementation task per agent at a time, with coordinated ownership to prevent overlapping edits. Multiple AI agents may collaborate on distinct scoped tasks; review changes before merging. Preserve source history, document manual Studio checks, and never mark unchecked design items implemented.
 
 ## Alpha 0.1 milestone gates (proposed)
 
