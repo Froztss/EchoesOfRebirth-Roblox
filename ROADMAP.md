@@ -1,3 +1,11 @@
+## Approved in-game Murim character customization (2026-11-09)
+
+- [x] **DESIGN APPROVED — hybrid in-game character creator.** Roblox R15 remains the technical rig and an optional Roblox-avatar appearance reference, but players create a coherent Murim/Wuxia/Xianxia character **inside the experience** rather than being restricted to their external Roblox avatar. Curated masculine, feminine, and neutral presentation options are cosmetic, not cultivation-path locks.
+- [ ] **Stage 3 / Alpha 0.1 minimum:** live rotatable character preview; curated facial appearances, skin tones, hairstyles/colors, modest R15-compatible proportions, starter martial robes, and limited accessories; name selection with Roblox-compliant text filtering; server-validated appearance persistence and replication. Use HumanoidDescription where suitable, plus compatible custom assets and a preview rig. Confirm that appearance choices survive respawn and rejoin.
+- [ ] **Narrative integration:** Latent Rebirth Resonance awakening -> Rebirth Form customization -> Soul Record confirmation -> First Haven tutorial -> previews of Sword/Body/Arcane -> explicit permanent cultivation-path selection. Appearance remains changeable through in-world services; cultivation-path permanence does not lock cosmetics.
+- [ ] **Theme and expansion boundary:** limit unrelated modern/novelty accessories in the in-world presentation; keep silhouettes readable and performant. Advanced facial sculpting, elaborate layered outfits, sect-specific wardrobes, and Qi aura cosmetics are later-stage enhancements. Plan custom R15 locomotion and path-specific martial animations in phases, but **do not treat a particular animation style (Traditional/Cinematic/High Fantasy) as approved yet**.
+- [ ] **Implementation gate:** This entry approves design and scope only; no gameplay code or assets are authorized or claimed complete. Finish Task 002 Studio acceptance and branch checkpoint before Stage 3 implementation.
+
 # Echoes of Rebirth — Roblox Development Roadmap
 
 **Platform:** Roblox Studio + Luau + Rojo. **Genre:** third-person, persistent shared-world Murim/xianxia cultivation MMORPG. **Design authority:** approved choices in the 2026-11-06 baseline and 2026-11-08 update below; later explicit user decisions supersede earlier proposals.
