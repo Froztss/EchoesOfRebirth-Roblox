@@ -1,3 +1,11 @@
+## Approved novice clothing and outfit progression (2026-11-09)
+
+- [x] **DESIGN APPROVED — novice-first visual progression.** Every newly created character begins in humble, practical Murim novice clothing regardless of future Sword/Body/Arcane path. In-game appearance customization covers identity, face, hair, skin, and modest novice outfit variations; ornate robes and high-status sect outfits are earned, crafted, purchased, or discovered later.
+- [ ] **Progression and acquisition:** support garments from NPC clothing merchants, tailoring/crafting, quests, exploration, and eventually player trading/marketplace. Progress from novice wanderer to martial disciple, experienced cultivator, and grandmaster as visual inspiration, not mandatory level locks. Maintain flexible outfit mixing and meaningful earned styles.
+- [ ] **Gameplay and cosmetic separation:** do not make preferred visual appearance inherently weaker than optimized equipment; define garment stats and appearance override/transmog policy before implementing itemization. Respect story/sect-earned identity items and established economy constraints.
+- [ ] **Alpha 0.1 minimum:** one coherent novice base outfit with a few color variants and a small set of attainable upgrades through a simple merchant or crafting interaction. Avoid a large clothing catalog or complex tailoring economy in the first slice.
+- [ ] **Implementation gate:** design approval only; do not modify gameplay code or claim assets exist. Preserve Task 002 branch reconciliation and Studio acceptance workflow before Stage 3 changes.
+
 ## Approved in-game Murim character customization (2026-11-09)
 
 - [x] **DESIGN APPROVED — hybrid in-game character creator.** Roblox R15 remains the technical rig and an optional Roblox-avatar appearance reference, but players create a coherent Murim/Wuxia/Xianxia character **inside the experience** rather than being restricted to their external Roblox avatar. Curated masculine, feminine, and neutral presentation options are cosmetic, not cultivation-path locks.
