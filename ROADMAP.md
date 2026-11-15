@@ -31,7 +31,7 @@ Stages represent **dependency order**, not a claim that all listed work fits int
 - [ ] Establish client responsiveness and server validation for consequential movement/actions; support desktop, mobile, and controller.
 - [ ] Basic region transitions, interaction prompts, HUD, and two-client isolation.
 
-**Acceptance:** Player controls, camera, lifecycle, and interactions work in Studio with two clients and no obsolete first-person assumptions. Preserve Task 002 changes.
+**Acceptance:** Player controls, camera, lifecycle, and interactions work in Studio with two clients and preserve existing authorized controller work.
 
 ### Stage 3 — Character identity, onboarding, and durable profile foundation
 
@@ -74,7 +74,7 @@ Stages represent **dependency order**, not a claim that all listed work fits int
 - [ ] First Haven and Whispering Forest starter routes, landmarks, Sanctuary Points, interactable NPCs, and accessible services.
 - [ ] Main/regional/character/cultivation quest foundations, journal, NPC Trust/Respect/Faction Reputation, and one meaningful personal branch.
 - [ ] Shared-world events with personal progression/rewards and no forced shared narrative decisions.
-- [ ] Adventurer Pact and Master–Disciple design hooks only where needed; do not add compulsory squads or obsolete Seraphine companion mechanics.
+- [ ] Adventurer Pact and Master–Disciple design hooks only where needed; do not add compulsory squads or mandatory companion mechanics.
 
 **Acceptance:** A player can complete onboarding and a coherent quest branch; two players see compatible shared world state while keeping distinct choices.
 
@@ -169,7 +169,7 @@ Stages represent **dependency order**, not a claim that all listed work fits int
 - [ ] **Flexible specialization within the permanent path**: all three branches accessible, but limited refundable technique points and four equipped path-technique slots. Free foundation skills; standard/advanced/legendary unlocks proposed at 1/2/3 points.
 - [ ] Technique lifecycle: **Discovered → Learned (permanent knowledge) → Unlocked (allocated points in current build) → Equipped (active slot)**. Manuals, trials, realm requirements, and prerequisites govern eligibility; mastery is persistent through respecs.
 - [ ] Proposed technique point economy: one per five character levels plus one per major realm breakthrough, for **25 points at Level 100** (20 level points + five breakthroughs). First respec free, subsequent respecs use modest in-game currency; safe-zone/trainer only, not during combat, dungeons, or duels. All figures subject to balance testing.
-- [ ] Server-authoritative damage, cooldowns, resource costs, unlocks, inventory, and XP/Insight/mastery rewards. Design for timing-sensitive third-person action, not the obsolete first-person Fireball/Frost Bolt-only system.
+- [ ] Server-authoritative damage, cooldowns, resource costs, unlocks, inventory, and XP/Insight/mastery rewards. Design for responsive third-person martial action.
 - [ ] Consensual unranked friendly duels and mentorship sparring; **no ranked duel ladder/MMR**. Eventual **Sovereign's Clash** Masters' tournament with spectators, temporary ceremonial title, and cosmetic recognition. Master qualification baseline: Level 50 + Martial Mastery + trial.
 
 ### Exploration, hidden realms, and discovery
@@ -214,7 +214,7 @@ Stages represent **dependency order**, not a claim that all listed work fits int
 
 ### Alpha 0.1 vertical-slice priorities (proposed; not yet authorized as tasks)
 
-- [ ] Third-person player controller and camera, with existing Task 002 WIP inspected before migration.
+- [ ] Third-person player controller and camera, with existing controller work inspected before changes.
 - [ ] Small First Haven plus forest outskirts, one hidden cave, one server-verified journal discovery.
 - [ ] Reincarnation introduction and **permanent player-chosen path** with confirmation.
 - [ ] Levels 1–20, Awakening/Refinement, Qi, basic stats, one breakthrough, foundational movement/combat and one introductory branch unlock per path.
