@@ -1,6 +1,6 @@
 ## Approved novice clothing and outfit progression (2026-11-09)
 
-- [x] **DESIGN APPROVED — novice-first visual progression.** Every newly created character begins in humble, practical Murim novice clothing regardless of future Sword/Body/Arcane path. In-game appearance customization covers identity, face, hair, skin, and modest novice outfit variations; ornate robes and high-status sect outfits are earned, crafted, purchased, or discovered later.
+- **DESIGN APPROVED — novice-first visual progression.** Every newly created character begins in humble, practical Murim novice clothing regardless of future Sword/Body/Arcane path. In-game appearance customization covers identity, face, hair, skin, and modest novice outfit variations; ornate robes and high-status sect outfits are earned, crafted, purchased, or discovered later.
 - [ ] **Progression and acquisition:** support garments from NPC clothing merchants, tailoring/crafting, quests, exploration, and eventually player trading/marketplace. Progress from novice wanderer to martial disciple, experienced cultivator, and grandmaster as visual inspiration, not mandatory level locks. Maintain flexible outfit mixing and meaningful earned styles.
 - [ ] **Gameplay and cosmetic separation:** do not make preferred visual appearance inherently weaker than optimized equipment; define garment stats and appearance override/transmog policy before implementing itemization. Respect story/sect-earned identity items and established economy constraints.
 - [ ] **Alpha 0.1 minimum:** one coherent novice base outfit with a few color variants and a small set of attainable upgrades through a simple merchant or crafting interaction. Avoid a large clothing catalog or complex tailoring economy in the first slice.
@@ -8,7 +8,7 @@
 
 ## Approved in-game Murim character customization (2026-11-09)
 
-- [x] **DESIGN APPROVED — hybrid in-game character creator.** Roblox R15 remains the technical rig and an optional Roblox-avatar appearance reference, but players create a coherent Murim/Wuxia/Xianxia character **inside the experience** rather than being restricted to their external Roblox avatar. Curated masculine, feminine, and neutral presentation options are cosmetic, not cultivation-path locks.
+- **DESIGN APPROVED — hybrid in-game character creator.** Roblox R15 remains the technical rig and an optional Roblox-avatar appearance reference, but players create a coherent Murim/Wuxia/Xianxia character **inside the experience** rather than being restricted to their external Roblox avatar. Curated masculine, feminine, and neutral presentation options are cosmetic, not cultivation-path locks.
 - [ ] **Stage 3 / Alpha 0.1 minimum:** live rotatable character preview; curated facial appearances, skin tones, hairstyles/colors, modest R15-compatible proportions, starter martial robes, and limited accessories; name selection with Roblox-compliant text filtering; server-validated appearance persistence and replication. Use HumanoidDescription where suitable, plus compatible custom assets and a preview rig. Confirm that appearance choices survive respawn and rejoin.
 - [ ] **Narrative integration:** Latent Rebirth Resonance awakening -> Rebirth Form customization -> Soul Record confirmation -> First Haven tutorial -> previews of Sword/Body/Arcane -> explicit permanent cultivation-path selection. Appearance remains changeable through in-world services; cultivation-path permanence does not lock cosmetics.
 - [ ] **Theme and expansion boundary:** limit unrelated modern/novelty accessories in the in-world presentation; keep silhouettes readable and performant. Advanced facial sculpting, elaborate layered outfits, sect-specific wardrobes, and Qi aura cosmetics are later-stage enhancements. Plan custom R15 locomotion and path-specific martial animations in phases, but **do not treat a particular animation style (Traditional/Cinematic/High Fantasy) as approved yet**.
@@ -18,21 +18,11 @@
 
 **Platform:** Roblox Studio + Luau + Rojo. **Genre:** third-person, persistent shared-world Murim/xianxia cultivation MMORPG. **Design authority:** approved choices in the 2026-11-06 baseline and 2026-11-08 update below; later explicit user decisions supersede earlier proposals.
 
-> **Implementation status (2026-11-08):** **Task 001 foundation verified complete.** **Task 002 has reported work-in-progress/checkpoint material, but its current branch, commit, and Studio acceptance have not been verified here.** No later gameplay stage is claimed complete. Unchecked tasks are design/implementation backlog, not evidence of working code. Do not infer task completion from design approval.
-
 > **Before any AI-agent or manual code edits:** Open the project workspace (including Codespace in VS Code when used) and **git pull first**; inspect `git status`, current branch, latest commits, Task 002 checkpoint, Rojo mapping, and existing controller modules. Preserve WIP, avoid destructive overwrites, and obtain explicit task authorization. Coordinate agents through clear task ownership and handoffs; maintain incremental checkpoints/commits and test in Roblox Studio where needed. The workflow is tool-agnostic: Codex and other coding, testing, documentation, design, or asset agents may contribute under the same safeguards.
 
 ## Development stages — authoritative implementation order
 
 Stages represent **dependency order**, not a claim that all listed work fits into a single task or release. Build small vertical slices and verify server authority, persistence, mobile/gamepad controls, and multi-client behavior continuously. Alpha 0.1 is a compact playable slice across relevant early stages; advanced features may remain post-Alpha.
-
-### Stage 1 — Project foundation [VERIFIED COMPLETE]
-
-- [x] Rojo service mappings, strict client/server bootstrap, shared configuration, documentation, and Git exclusions (Task 001).
-- [x] Rojo build/sourcemap and available checks; preserve Baseplate/Camera and unmanaged Studio scene.
-- [x] User-verified Studio sync, single-player and two-client startup without game-script startup errors.
-
-**Acceptance:** Task 001 verification record below remains authoritative. No new gameplay is implied.
 
 ### Stage 2 — Character controller, camera, and input
 
@@ -135,7 +125,7 @@ Stages represent **dependency order**, not a claim that all listed work fits int
 
 ## Approved Alpha 0.1 scope and development handoff (2026-11-09)
 
-- [x] **DESIGN APPROVED — Alpha 0.1 Option C: Focused Playable Vertical Slice.** Target a coherent **20–30-minute early-game experience**: third-person R15 movement/camera/input; Roblox-avatar-based character identity and onboarding with explicit permanent Sword/Body/Arcane cultivation path selection; basic starter combat for all three paths; introductory cultivation and persistent character/quest progress; one starting settlement (First Haven) and adjacent wilderness (Whispering Forest); a small NPC cast and one meaningful persistent personal quest choice. Support solo play, desktop/mobile/gamepad where applicable, and two-client verification. This is a **scope decision, not implementation completion**.
+- **DESIGN APPROVED — Alpha 0.1 Option C: Focused Playable Vertical Slice.** Target a coherent **20–30-minute early-game experience**: third-person R15 movement/camera/input; Roblox-avatar-based character identity and onboarding with explicit permanent Sword/Body/Arcane cultivation path selection; basic starter combat for all three paths; introductory cultivation and persistent character/quest progress; one starting settlement (First Haven) and adjacent wilderness (Whispering Forest); a small NPC cast and one meaningful persistent personal quest choice. Support solo play, desktop/mobile/gamepad where applicable, and two-client verification. This is a **scope decision, not implementation completion**.
 - [ ] **Alpha 0.1 release boundary:** Deliver only the minimum necessary combat, inventory/reward, world, quest, and persistence infrastructure for this slice. Advanced NPC mentorship, sect/faction politics, dynamic faction events, full inheritance trees, trading/marketplace, large-scale bosses, multiple realms, and extensive content remain **post-Alpha** unless explicitly reauthorized. Do not implement features simply because their design was approved.
 - [ ] **Immediate development handoff — Task 002 audit and Studio acceptance (next authorized task to propose, not yet executed):** After opening the workspace, **git pull first**, then inspect active branch, `git status`, latest commits, `docs/TASK002_CHECKPOINT.md` (if present), `default.project.json`, `src/client/PlayerController.luau`, `src/server/CharacterSetup.luau`, `src/shared/CharacterLifecycle.luau`, tests, and related controller code. Preserve WIP and reconcile any first-person `LockFirstPerson` assumptions with approved third-person R15 behavior; do not overwrite or merge before review. Run available Rojo build/sourcemap/tests, and provide a precise manual Roblox Studio checklist for single-player and two-client movement, camera, respawn, input and no startup errors. Report blockers and smallest safe follow-up patches; do not claim Studio tests passed without user-run evidence.
 - [ ] **Task authorization gate:** This handoff is a planning specification only. Obtain explicit user authorization before Codex edits gameplay code, commits, merges, or moves to Stage 3. Record task checkpoints and results in the roadmap after verification.
@@ -143,7 +133,7 @@ Stages represent **dependency order**, not a claim that all listed work fits int
 
 ## Alpha 0.1 milestone gates (proposed)
 
-1. **Foundation gate:** Task 001 verified; Task 002 reviewed/reconciled before further controller edits.
+1. **Foundation gate:** Verify foundational systems and reconcile the controller before further gameplay changes.
 2. **Character gate:** one character, onboarding, path choice, identity/resonance, persistent save.
 3. **Combat gate:** basic Sword/Body/Arcane, parry/dodge/stance, Qinggong, downed/revive/Qi Disruption.
 4. **World gate:** First Haven and forest outskirts, starter NPCs/quests, one personal choice, discovery journal.
@@ -154,20 +144,9 @@ Stages represent **dependency order**, not a claim that all listed work fits int
 
 ---
 
-## Task 001 verification record
-
-Automated results and user manual acceptance are recorded separately below. Stage 1 is complete; later-stage completion must be verified against the current branch and Studio. Task 002 has reported work-in-progress, not a verified completion.
-
-2026-11-02 — Automated verification: applied the code-only mapping after the user confirmed Studio's Rojo plugin was disconnected. Rojo 7.7.1 build and sourcemap generation passed. The generated hierarchy contains the expected Script, LocalScript, and ModuleScript with source matching disk, and no Workspace, Baseplate, Camera, Lighting, or SoundService instances. Editor diagnostics, documentation links, 11-stage count, strict directives, and whitespace checks passed. No Studio scene objects were edited. Standalone Luau analysis is unavailable; no separate Studio Script Analysis result has been reported.
-
-2026-11-02 — User manual acceptance and Task 001 completion: Rojo synchronization, Baseplate and Camera preservation, Client/Server/Shared Config mappings, single-player startup, and two-client multiplayer startup passed. The server and both clients displayed their startup messages. No errors originating from game scripts were reported. Studio's asset-type warning for asset ID `203785492` is non-blocking and documented; its requesting component remains unidentified. The user authorized the private repository setup, foundation commit, and push to `main`. Task 002 status requires branch/worktree verification; do not assume it is unstarted or complete.
-
-
----
-
 ## Current game design direction — 2026-11-06 (planning baseline; not implemented)
 
-> **HISTORICAL DESIGN BASELINE (2026-11-06):** This section preserves earlier approved choices and provisional proposals. The newer 2026-11-08 design update below overrides conflicting statements here. The authoritative implementation order is Stages 1–11 at the top of this file. Task 001 is complete; Task 002 is unverified WIP and must be inspected before editing controller files. Unchecked items are not implemented.
+> **Historical design baseline (2026-11-06):** Earlier approved design choices and provisional proposals are retained below. Newer approved decisions supersede conflicting statements. Unchecked items describe planned work, not verified implementation.
 
 ### Product vision and player experience
 
@@ -255,7 +234,7 @@ Automated results and user manual acceptance are recorded separately below. Stag
 
 ---
 
-## Design progress update — 2026-11-08 (confirmed decisions and implementation backlog)
+## Design decisions — 2026-11-08 (confirmed direction and implementation backlog)
 
 > **STATUS:** Design/planning only. Nothing in this section is implemented or tested merely because it is documented. This section supersedes conflicting or undecided statements in the 2026-11-06 design baseline above (especially the opening, death penalty, camera/combat, enemy AI, and boss/dungeon choices). Stages 2–11 above have now been rewritten for the Roblox Murim MMORPG. Do not overwrite Task 002 WIP without inspecting branch/status; user intends to git pull first when reopening Codespace.
 
@@ -386,6 +365,5 @@ Automated results and user manual acceptance are recorded separately below. Stag
 ### Next planning work and guardrails
 
 1. **Exploration guidance A + C, hybrid world map C, and Discovery Journal hybrid hints C approved:** next calibrate rank point thresholds and achievement gates to content budgets, first-discovery/repeatable reward tables, cultivation balance, Chronicle milestone interface, completion criteria, map integration, and spoiler-safe accessibility; do not treat unapproved UX specifics as final.
-2. **Completed planning correction:** Stages 2–11 now specify the Roblox Murim implementation sequence. Next inspect Task 002 branch/WIP and split the next authorized stage into small tasks; Task 001 verification history remains preserved.
 3. Treat all numerical timing, damage, stamina, Qi, spawn, loot, and HP scaling values as **unplaytested prototypes**.
 4. Preserve confirmed constraints: one character/account; permanent chosen path; no character-reset feature in Alpha; no cross-character transfers; no forced parties; soloable standard story/realms; no permanent death loss; personal loot; always-tradeable hidden weapons; shared world with personal story choices.
